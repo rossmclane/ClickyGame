@@ -1,0 +1,4 @@
+To do
+1. Components (Navbar, Header, Container, ClickItem, Footer) - Use Bootstrap
+2. App holds the state (score) and methods to modify state. Then those methods will be passed down to each ClickItem. On each ClickItem, so that onClick, that function is run, which will modify the state of the app
+3. On each click the photos should be randomly re-rendered. Additionally, on each page load the images should be randomly re-rendered. This means that there should probably be a state variable that holds the order of the items and on each click they should be shuffled. Then the render method of the Container will be take in the prop of the order and render according to that order.
