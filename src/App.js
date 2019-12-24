@@ -19,10 +19,11 @@ class App extends Component {
       "https://images.unsplash.com/photo-1576361181962-701d5694bfbf?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=250&ixlib=rb-1.2.1&q=80&w=250",
       "https://images.unsplash.com/photo-1576825298729-103eee9ca91b?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=250&ixlib=rb-1.2.1&q=80&w=250",
       "https://images.unsplash.com/photo-1576935429524-1df7fb127097?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=250&ixlib=rb-1.2.1&q=80&w=250"
-    ]
+    ],
+    clickedImgs: []
   };
 
-  handleClick = () => {
+  handleClick = ({ target }) => {
     var randArray = [];
 
     while (randArray.length < 12) {
@@ -31,15 +32,33 @@ class App extends Component {
         randArray.push(randInt);
       }
     }
+
     this.setState({
       imgs: randArray.map(randIndex => this.state.imgs[randIndex])
     });
+
+    if (!this.state.clickedImgs.includes(target.src)) {
+      this.setState({
+        clickedImgs: this.state.clickedImgs.concat(target.src),
+        score: this.state.score + 1
+      });
+
+      if (this.state.score >= this.state.highScore) {
+        this.setState({ highScore: this.state.score + 1 });
+      }
+    } else {
+      if (this.state.score >= this.state.highScore) {
+        this.setState({ highScore: this.state.score });
+      }
+
+      this.setState({ score: 0, clickedImgs: [] });
+    }
   };
 
   render() {
     return (
       <div>
-        <Header />
+        <Header state={this.state} />
         <Game imgs={this.state.imgs} handleClick={this.handleClick} />
       </div>
     );

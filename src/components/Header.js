@@ -1,10 +1,10 @@
 import React from "react";
 import NavBar from "./NavBar/NavBar";
 
-const Header = () => {
+const Header = props => {
   return (
     <header>
-      <NavBar />
+      <NavBar state={props.state} />
     </header>
   );
 };
