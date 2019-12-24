@@ -1,7 +1,7 @@
 import React from "react";
 import { Container } from "react-bootstrap";
 import "./style.css";
-import ClickItem from "../ClickItem";
+import ClickItem from "../ClickItem/ClickItem";
 
 const Game = props => {
   return (

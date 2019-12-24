@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Header from "./components/Header";
 import Game from "./components/Game/Game";
+import Footer from "./components/Footer/Footer";
 
 class App extends Component {
   state = {
@@ -57,9 +58,10 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div id="app_div">
         <Header state={this.state} />
         <Game imgs={this.state.imgs} handleClick={this.handleClick} />
+        <Footer />
       </div>
     );
   }

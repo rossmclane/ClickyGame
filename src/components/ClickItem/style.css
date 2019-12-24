@@ -1,0 +1,11 @@
+img {
+    border: 1px solid white;
+}
+
+img:hover {
+    border: 1px solid black;
+}
+
+button {
+    padding: 2px;
+}
